@@ -44,12 +44,13 @@ print("Straight helix: "+str(L_helix))
 print("Toroidal helix:"+str(L_torus))
 print("Torus/straight ratio:"+str(L_torus/L_helix))
 
-#compute the ratio for shells of concentric helices, with N_list helices per shell
+#Compute the ratio for shells of concentric helices, with N_list helices per shell.
+#This involve adding up the corrections for the outer shell and all the inner shells, weighted by the number of helices per shell.
 #This will converge on the value in the paper (1.0058) as T becomes large
 
 T=10  #total number of concentric shells (not including rod)
 
-N_list=np.array(range(1,T+1))*4 #this is the 4-incremented number, can be substited
+N_list=np.array(range(1,T+1))*4 #this is the 4-incremented number, can be substituted with other numbers
 r_list=np.array(range(1,T+1))*2 #radii
 R=0.913*N_list[-1] #using major radius from paper for the 4-incremented helix
 #R=N_list[-1] #remove the 0.913 to recover the double-donut 4-increment correction
